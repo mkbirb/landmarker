@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Pin {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  category    String
+  lat         Float
+  lng         Float
+  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+}
