@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "22": "^0.0.0",
+    "@neondatabase/serverless": "^1.0.2",
+    "@prisma/adapter-neon": "^7.2.0",
     "@prisma/client": "^7.2.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.561.0",
@@ -21,7 +23,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/leaflet": "^1.9.21",
-    "@types/node": "^20",
+    "@types/node": "^20.19.27",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.2.3",
@@ -29,6 +31,7 @@
     "eslint-config-next": "16.0.10",
     "prisma": "^7.2.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

@@ -6,6 +6,8 @@ import { defineConfig } from "prisma/config";
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
+    // Added --esm because your seed.ts uses imports for the Neon adapter
+    seed: 'npx ts-node --esm prisma/seed.ts', 
     path: "prisma/migrations",
   },
   datasource: {
