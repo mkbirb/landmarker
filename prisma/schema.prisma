@@ -6,12 +6,50 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  pins      Pin[]
+  reviews   Review[]
+}
+
 model Pin {
   id          Int       @id @default(autoincrement())
   name        String
   description String?
-  category    String
-  lat         Float
-  lng         Float
-  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
+  latitude    Float
+  longitude   Float
+  media       Media[]
+  reviews     Review[]
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime? @default(now())
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  comment   String
+  rating    Int
+  pinId     Int 
+  pin       Pin      @relation(fields: [pinId], references: [id])
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Media {
+  id    Int    @id @default(autoincrement())
+  url   String
+  pinId Int
+  pin   Pin    @relation(fields: [pinId], references: [id])
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  icon  String 
+  pins  Pin[]  
 }
