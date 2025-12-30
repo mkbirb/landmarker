@@ -11,5 +11,10 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './'),
     },
+    onStackTrace(error, { file }) {
+      // This forces Vitest to print the full stack trace even for "serialized" objects
+      console.log("Full Error:", error);
+      return true 
+    },
   },
 })

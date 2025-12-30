@@ -35,12 +35,12 @@ async function main() {
 
     await prisma.pin.create({
         data: {
-        name: 'Central Park',
-        description: 'A great place for a walk.',
-        latitude: 40.7850,
-        longitude: -73.9682,
-        userId: user.id,
-        categoryId: park.id,
+            name: 'Central Park',
+            description: 'A great place for a walk.',
+            latitude: 40.7850,
+            longitude: -73.9682,
+            userId: user.id,
+            categoryId: park.id,
         },
     })
 
