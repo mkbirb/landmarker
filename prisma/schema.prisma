@@ -44,7 +44,7 @@ model Media {
   id    Int    @id @default(autoincrement())
   url   String
   pinId Int
-  pin   Pin    @relation(fields: [pinId], references: [id])
+  pin   Pin    @relation(fields: [pinId], references: [id], onDelete: Cascade)
 }
 
 model Category {
