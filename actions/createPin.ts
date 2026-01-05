@@ -34,9 +34,6 @@ export async function createPin(formData: FormData) {
         const { data: urlData } = supabase.storage.from("pin-media").getPublicUrl(filePath);
         
         mediaUrl = urlData.publicUrl;
-
-        // Tells Next.js to get the new data
-        revalidatePath("/");
     }
     
     
@@ -58,4 +55,7 @@ export async function createPin(formData: FormData) {
                 } : undefined
             }
     });
+
+    // Tells Next.js to get the new data
+    revalidatePath("/");
 }
